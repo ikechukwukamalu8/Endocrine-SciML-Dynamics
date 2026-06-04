@@ -28,22 +28,30 @@ $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{data}} + \lambda \cdot \mathca
 Where $\lambda$ enforces strict alignment with human homeostatic limits.
 
 ## 🛠️ Repository Architecture
+
 ```text
-├── main.py                # Main script: Data generation, PINN class, and training loop
+├── main.py                 # Main script: Data generation, PINN class, and training loop
 ├── pinn_reconstruction.png # Saved optimization trajectory graph
-└── README.md              # Project documentation and engineering diagnostics
+└── README.md               # Project documentation and engineering diagnostics
+```
+
 ---
+
 ## 📊 Performance & Parameter Discovery Analytics
+
 During optimization, the unknown biological parameter $p_3$ is initialized far from its true value to evaluate the inversion performance of the machine learning framework:
 
-* **True Ground-Truth Parameter ($p_3$):** `0.01000`
-* **PINN Back-Calculated Discovery Value ($p_3$):** `0.00998`
-* **Estimation Metric Accuracy:** `~99.8%` Verification
+- **True Ground-Truth Parameter ($p_3$):** `0.01000`
+- **PINN Back-Calculated Discovery Value ($p_3$):** `0.00998`
+- **Estimation Metric Accuracy:** `~99.8%` verification
 
 ### Trajectory Reconstruction Visual
+
 The PINN filters out the Gaussian device noise to reveal the true underlying continuous physiological clearance path:
 
 ![PINN Trajectory Reconstruction](pinn_reconstruction.png)
+
+---
 
 ## ⚡ Local Setup & Execution
 
@@ -54,7 +62,6 @@ Ensure your environment uses **Python 3.10+** and install the required scientifi
 ```bash
 pip install torch numpy matplotlib
 ```
-
 ---
 
 ### Option A: Run from Terminal
