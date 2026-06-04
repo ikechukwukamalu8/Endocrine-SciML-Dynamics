@@ -1,4 +1,4 @@
-# Physics-Informed Neural Networks (PINNs) for Inverse Modeling and Parameter Discovery in Endocrine Dynamics
+# Physics-Informed Neural Networks (PINNs) for Inverse Modelling and Parameter Discovery in Endocrine Dynamics
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-ee4c2c.svg)](https://pytorch.org/)
@@ -88,7 +88,7 @@ When executed locally, the script prints step-by-step training updates to the sh
 This independent project demonstrates:
 
 - Formulating custom structural losses utilizing neural network automatic differentiation.
-- Deploying deep learning pipelines capable of executing inverse modeling for translational healthcare applications.
+- Deploying deep learning pipelines capable of executing inverse modelling for translational healthcare applications.
 - Interdisciplinary software implementation connecting advanced mathematical systems theory to real-world neural architectures.
 
 ## 📄 License
