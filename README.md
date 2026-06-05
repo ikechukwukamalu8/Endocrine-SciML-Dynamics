@@ -18,13 +18,13 @@ The project serves as an example of **Scientific Machine Learning (SciML)**, com
 
 The glucose dynamics are constrained by a simplified physiological model:
 
-$$
+```math
 \frac{dG}{dt}
 =
--p_1\left(G(t)-G_b\right)
+-p_1(G(t)-G_b)
 -
 X(t)G(t)
-$$
+```
 
 where:
 
