@@ -40,13 +40,14 @@ Unlike conventional neural networks that learn solely from observations, the PIN
 ---
 
 ## ⚙️ Physics-Informed Loss Function
+
 The optimization objective combines two complementary components.
 
 ### Data Loss
 
 The model minimizes the discrepancy between predicted and observed glucose values:
 
-$$
+```math
 \mathcal{L}_{\mathrm{data}}
 =
 \mathrm{MSE}
@@ -54,32 +55,32 @@ $$
 G_{\mathrm{pred}},
 G_{\mathrm{obs}}
 \right)
-$$
+```
 
 ### Physics Loss
 
 Automatic differentiation is used to compute temporal derivatives and enforce compliance with the governing differential equation:
 
-$$
+```math
 \mathcal{L}_{\mathrm{physics}}
 =
 \mathrm{MSE}
 \left(
 \mathrm{ODE\ Residual}
 \right)
-$$
+```
 
 ### Total Loss
 
 The final optimization objective is:
 
-$$
+```math
 \mathcal{L}_{\mathrm{total}}
 =
 \mathcal{L}_{\mathrm{data}}
 +
 \lambda \mathcal{L}_{\mathrm{physics}}
-$$
+```
 
 where $\lambda$ controls the balance between data fidelity and physiological consistency.
 
