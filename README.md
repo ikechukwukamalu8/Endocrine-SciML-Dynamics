@@ -21,7 +21,7 @@ The glucose dynamics are constrained by a simplified physiological model:
 $$
 \frac{dG}{dt}
 =
--p_1\bigl(G(t)-G_b\bigr)
+-p_1\left(G(t)-G_b\right)
 -
 X(t)G(t)
 $$
@@ -29,7 +29,7 @@ $$
 where:
 
 - $G(t)$ = blood glucose concentration
-- $X(t)$ = latent insulin action state
+- $X(t)$ = latent insulin-action state
 - $G_b$ = basal glucose concentration
 - $p_1$ = glucose clearance coefficient
 
@@ -44,28 +44,28 @@ The optimization objective combines two complementary components.
 
 ### Data Loss
 
-The model minimizes the discrepancy between predicted glucose values and observed clinical measurements:
+The model minimizes the discrepancy between predicted and observed glucose values:
 
 $$
-\mathcal{L}_{\text{data}}
+\mathcal{L}_{\mathrm{data}}
 =
-\text{MSE}
+\mathrm{MSE}
 \left(
-G_{\text{pred}},
-G_{\text{obs}}
+G_{\mathrm{pred}},
+G_{\mathrm{obs}}
 \right)
 $$
 
 ### Physics Loss
 
-Automatic differentiation is used to compute temporal derivatives and enforce compliance with the physiological ODE:
+Automatic differentiation is used to compute temporal derivatives and enforce compliance with the governing differential equation:
 
 $$
-\mathcal{L}_{\text{physics}}
+\mathcal{L}_{\mathrm{physics}}
 =
-\text{MSE}
+\mathrm{MSE}
 \left(
-\text{ODE Residual}
+\mathrm{ODE\ Residual}
 \right)
 $$
 
@@ -74,12 +74,11 @@ $$
 The final optimization objective is:
 
 $$
-\mathcal{L}_{\text{total}}
+\mathcal{L}_{\mathrm{total}}
 =
-\mathcal{L}_{\text{data}}
+\mathcal{L}_{\mathrm{data}}
 +
-\lambda
-\mathcal{L}_{\text{physics}}
+\lambda \mathcal{L}_{\mathrm{physics}}
 $$
 
 where $\lambda$ controls the balance between data fidelity and physiological consistency.
