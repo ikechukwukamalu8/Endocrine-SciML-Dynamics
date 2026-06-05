@@ -20,40 +20,39 @@ The glucose dynamics are constrained by a simplified physiological model:
 
 $$
 \frac{dG}{dt}
-=============
-
-## -p_1\bigl(G(t)-G_b\bigr)
-
+=
+-p_1\bigl(G(t)-G_b\bigr)
+-
 X(t)G(t)
 $$
 
 where:
 
-* (G(t)) = blood glucose concentration
-* (X(t)) = latent insulin action state
-* (G_b) = basal glucose concentration
-* (p_1) = glucose clearance coefficient
+- $G(t)$ = blood glucose concentration
+- $X(t)$ = latent insulin action state
+- $G_b$ = basal glucose concentration
+- $p_1$ = glucose clearance coefficient
 
-The neural network learns continuous approximations of both (G(t)) and (X(t)) while enforcing consistency with the governing differential equation.
+The PINN learns two latent states, glucose concentration $G(t)$ and insulin-action activity $X(t)$, while enforcing a physiological glucose dynamics constraint through a differential-equation residual.
+
+Unlike conventional neural networks that learn solely from observations, the PINN incorporates mechanistic knowledge of glucose regulation into the optimization process through automatic differentiation and ODE-constrained learning.
 
 ---
 
 ## ⚙️ Physics-Informed Loss Function
-
-The optimization objective combines two complementary components:
+The optimization objective combines two complementary components.
 
 ### Data Loss
 
 The model minimizes the discrepancy between predicted glucose values and observed clinical measurements:
 
 $$
-\mathcal{L}_{data}
-==================
-
+\mathcal{L}_{\text{data}}
+=
 \text{MSE}
 \left(
-G_{pred},
-G_{obs}
+G_{\text{pred}},
+G_{\text{obs}}
 \right)
 $$
 
@@ -62,9 +61,8 @@ $$
 Automatic differentiation is used to compute temporal derivatives and enforce compliance with the physiological ODE:
 
 $$
-\mathcal{L}_{physics}
-=====================
-
+\mathcal{L}_{\text{physics}}
+=
 \text{MSE}
 \left(
 \text{ODE Residual}
@@ -73,17 +71,18 @@ $$
 
 ### Total Loss
 
-$$
-\mathcal{L}_{total}
-===================
+The final optimization objective is:
 
-\mathcal{L}*{data}
+$$
+\mathcal{L}_{\text{total}}
+=
+\mathcal{L}_{\text{data}}
 +
 \lambda
-\mathcal{L}*{physics}
+\mathcal{L}_{\text{physics}}
 $$
 
-where (\lambda) controls the balance between data fidelity and physiological consistency.
+where $\lambda$ controls the balance between data fidelity and physiological consistency.
 
 ---
 
