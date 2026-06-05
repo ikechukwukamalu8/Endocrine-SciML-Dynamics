@@ -1,4 +1,4 @@
-# Physics-Informed Neural Networks (PINNs) for Inverse Modelling and Parameter Discovery in Endocrine Dynamics
+# Physics-Informed Neural Networks (PINNs) for Glucose Trajectory Reconstruction in Endocrine Dynamics
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-ee4c2c.svg)](https://pytorch.org/)
@@ -37,13 +37,16 @@ Where $\lambda$ enforces strict alignment with human homeostatic limits.
 
 ---
 
-## 📊 Performance & Parameter Discovery Analytics
+## 📊 Trajectory Reconstruction Performance
 
-During optimization, the unknown biological parameter $p_3$ is initialized far from its true value to evaluate the inversion performance of the machine learning framework:
+The Physics-Informed Neural Network reconstructs the underlying glucose trajectory from sparse and noisy clinical observations while satisfying physiological constraints derived from the Bergman glucose dynamics model.
 
-- **True Ground-Truth Parameter ($p_3$):** `0.01000`
-- **PINN Back-Calculated Discovery Value ($p_3$):** `0.00998`
-- **Estimation Metric Accuracy:** `~99.8%` verification
+Key observations:
+
+- Accurate reconstruction of the nonlinear glucose decay trajectory.
+- Robustness to measurement noise.
+- Smooth physiological behavior enforced through ODE-constrained optimization.
+- Improved interpretability compared with purely data-driven neural networks.
 
 ### Trajectory Reconstruction Visual
 
@@ -83,14 +86,31 @@ python main.py
 
 When executed locally, the script prints step-by-step training updates to the shell, outputs the final back-calculated parameters, and launches a native, interactive plot window.
 
-## 🎯 Relevancy to Deep Scientific Machine Learning
+## 🎯 Relevancy to Scientific Machine Learning
 
-This independent project demonstrates:
+This project demonstrates:
 
-- Formulating custom structural losses utilizing neural network automatic differentiation.
-- Deploying deep learning pipelines capable of executing inverse modelling for translational healthcare applications.
-- Interdisciplinary software implementation connecting advanced mathematical systems theory to real-world neural architectures.
+- Physics-Informed Neural Networks (PINNs)
+- Automatic differentiation using PyTorch
+- ODE-constrained neural network optimization
+- Hybrid mechanistic and data-driven modeling
+- Scientific Machine Learning (SciML)
+- Computational endocrinology applications
+- Continuous trajectory reconstruction from sparse observations
+- Interpretable machine learning through mechanistic constraints
 
+## 🚀 Future Directions
+
+Potential future extensions include:
+
+- Full Bergman Minimal Model implementation
+- Hidden physiological parameter discovery
+- Inverse modeling of insulin sensitivity parameters
+- Bayesian PINNs for uncertainty quantification
+- Personalized digital twin construction
+- Real Continuous Glucose Monitoring (CGM) datasets
+- Neural ODE and DeepONet comparisons
+  
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
