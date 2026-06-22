@@ -42,9 +42,13 @@ The PINN learns the continuous trajectory of glucose concentration $G(t)$ over t
 
 The optimization objective combines two complementary mathematical objectives to guarantee physiological realism.
 
-### Data Loss
+Data Loss
+
 The model minimizes the mean squared error on sparse, noisy observational coordinates:
-$$\mathcal{L}_{\text{data}} = \text{MSE}(G_{\text{pred}}, G_{\text{obs}})$$
+
+$$
+\mathcal{L}{\text{data}} = \text{MSE}(G{\text{pred}}, G_{\text{obs}})
+$$
 
 ### Physics Loss
 Automatic differentiation tracks exact temporal derivatives to minimize the structural ODE residual:
