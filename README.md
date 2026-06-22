@@ -84,7 +84,6 @@ The updated model successfully navigates past unconstrained local minima and ach
 └── README.md
 
 ---
-
 ## ⚡ Installation
 
 Install required packages:
