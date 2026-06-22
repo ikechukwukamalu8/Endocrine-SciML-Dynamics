@@ -88,8 +88,10 @@ The updated model successfully navigates past unconstrained local minima and ach
 ├── main.py
 ├── pinn_reconstruction.png
 └── README.md
+```
 
 ---
+
 ## ⚡ Installation
 
 Install the required packages:
@@ -107,6 +109,7 @@ Execute:
 ```bash
 python main.py
 ```
+
 ---
 
 ## 📄 License
